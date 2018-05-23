@@ -6,8 +6,9 @@ Airhorn is an example implementation of the [Discord API](https://discordapp.com
 
 - npm
 - gulp
-- go
-- redis
+- [go](https://golang.org/doc/install)
+- [discordgo](https://github.com/bwmarrin/discordgo)
+- [redis](https://redis.io/topics/quickstart)
 - Firewall 6379 port open
 
 **Firewall Change from [LinuxConfig.org](https://linuxconfig.org/how-to-open-allow-incoming-firewall-port-on-ubuntu-18-04-bionic-beaver-linux)**
@@ -32,7 +33,7 @@ sudo apt-get install tcl
 
 ## Next run a test
 make test
-## At the end you should see something like "\o/ All tests passed without errors!
+## At the end you should see something like "\o/ All tests passed without errors!"
 
 
 ## Get redis ready for prime time (make sure you're still in ~/redis-stable directory)
