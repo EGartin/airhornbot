@@ -2,6 +2,31 @@
 
 Airhorn is an example implementation of the [Discord API](https://discordapp.com/developers/docs/intro). Airhorn bot utilizes the [discordgo](https://github.com/bwmarrin/discordgo) library, a free and open source library. Original credit of Airhorn Bot goes to [these guys](https://airhorn.solutions/) Airhorn Bot requires Go 1.4 or higher.
 
+## Prereqs
+
+You need a few things from your discord client before you begin. You need to login to the [discord app](https://discordapp.com/channels/@me) in the browser and enable developer mode under `Appearance` to enable the features you need to interact with the Discord API.
+
+- OWNER_ID (Right click yourself in a channel and "Copy ID")
+
+You can obtain these other ones by creating an application and bot user in the "My Apps" area in the [developer area](https://discordapp.com/developers/applications/me/)
+
+Under **App Details** (These are for the webserver *optional*)
+
+- MY_APPLICATION_ID
+- MY_APPLICATION_SECRET
+
+You will need to *Add a Bot User* to obtain this token
+
+- MY_BOT_ACCOUNT_TOKEN
+
+Once you set this up, you'll need to navigate to this URL to add the bot to your discord.  However, it won't do anything just yet until you make the bot software and have it listening to the bot user token you created. Make sure you replace **<<MY_APPLICATION_ID>>** in the URL.
+
+```html
+
+https://discordapp.com/api/oauth2/authorize?client_id=<<MY_APPLICATION_ID>>&scope=bot&permissions=1
+
+```
+
 ## Server Requirements
 
 - npm
@@ -13,7 +38,7 @@ Airhorn is an example implementation of the [Discord API](https://discordapp.com
 
 **Firewall Change from [LinuxConfig.org](https://linuxconfig.org/how-to-open-allow-incoming-firewall-port-on-ubuntu-18-04-bionic-beaver-linux)**
 
-```bash
+```zsh
 
 sudo ufw allow from any to any port 6379 proto tcp
 
@@ -21,7 +46,7 @@ sudo ufw allow from any to any port 6379 proto tcp
 
 **Installing and Testing Redis from [Redis.io](https://redis.io/topics/quickstart)**
 
-```bash
+```zsh
 
 wget http://download.redis.io/redis-stable.tar.gz
 tar xvzf redis-stable.tar.gz
@@ -85,7 +110,7 @@ go install github.com/EGartin/airhornbot/cmd/webserver
 
 **Next run `make static` on the repo in your `~/go/src/github.com/EGartin/airhornbot` repo**
 
-```bash
+```zsh
 
 cd ~/go/src/github.com/EGartin/airhornbot
 make static
@@ -96,11 +121,15 @@ make static
 
 ```go
 
-./airhornweb -r "localhost:6379" -i MY_APPLICATION_ID -s 'MY_APPLICATION_SECRET"
+./airhornweb -r "localhost:6379" -i MY_APPLICATION_ID -s "MY_APPLICATION_SECRET"
 
 ```
 
 Note, the webserver requires a redis instance to track statistics
+
+## DevOps Automation
+
+Coming Soon. Feel free to follow along with the new Issue tracker and Github Project on this Repo
 
 ## Thanks
 
