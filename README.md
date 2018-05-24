@@ -15,7 +15,7 @@ Under **App Details** (These are for the webserver *optional*)
 - MY_APPLICATION_ID
 - MY_APPLICATION_SECRET
 
-You will need to *Add a Bot User* to obtain this token
+You will need to *Create a Bot User* to obtain this token
 
 - MY_BOT_ACCOUNT_TOKEN
 
@@ -29,22 +29,47 @@ https://discordapp.com/api/oauth2/authorize?client_id=<<MY_APPLICATION_ID>>&scop
 
 ## Server Requirements
 
-- npm
-- gulp
+- [Node.js](https://nodejs.org/en/) (npm and gulp)
 - [go](https://golang.org/doc/install)
 - [discordgo](https://github.com/bwmarrin/discordgo)
 - [redis](https://redis.io/topics/quickstart)
-- Firewall 6379 port open
+- Firewall Change[LinuxConfig.org](https://linuxconfig.org/how-to-open-allow-incoming-firewall-port-on-ubuntu-18-04-bionic-beaver-linux)
 
-**Firewall Change from [LinuxConfig.org](https://linuxconfig.org/how-to-open-allow-incoming-firewall-port-on-ubuntu-18-04-bionic-beaver-linux)**
+### Install Node.js and Gulp
 
 ```zsh
 
-sudo ufw allow from any to any port 6379 proto tcp
+sudo apt install npm
 
 ```
 
-**Installing and Testing Redis from [Redis.io](https://redis.io/topics/quickstart)**
+```zsh
+
+npm install gulp
+
+```
+
+### Install GO and DiscordGO
+
+```zsh
+
+sudo apt install golang-go
+## Set your GOPATH to wherever you want. Keep this in mind if you change location.
+export GOPATH=~/.go
+
+```
+
+Next **Download DiscordGO**.  This will be required for any programs calling the library.
+
+```go
+
+go get github.com/bwmarrin/discordgo
+
+```
+
+### Installing Redis
+
+**Installing Redis from [Redis.io](https://redis.io/topics/quickstart)**
 
 ```zsh
 
@@ -53,13 +78,19 @@ tar xvzf redis-stable.tar.gz
 cd redis-stable
 make
 
-##You may need to install tcl
+##You need to install tcl before you run your `make test`
 sudo apt-get install tcl
+
+```
+
+Next **Test Redis**
+
+```zsh
 
 ## Next run a test
 make test
-## At the end you should see something like "\o/ All tests passed without errors!"
 
+## At the end you should see something like "\o/ All tests passed without errors!"
 
 ## Get redis ready for prime time (make sure you're still in ~/redis-stable directory)
 sudo make install
@@ -67,8 +98,16 @@ sudo make install
 ##Manually Start Redis
 redis-server
 
-##Daemonize Redis
+##Daemonize Redis to run server in the background
 redis-server --daemonize yes
+
+```
+
+**Firewall Change from [LinuxConfig.org](https://linuxconfig.org/how-to-open-allow-incoming-firewall-port-on-ubuntu-18-04-bionic-beaver-linux)**
+
+```zsh
+
+sudo ufw allow from any to any port 6379 proto tcp
 
 ```
 
@@ -89,7 +128,7 @@ go install github.com/EGartin/airhornbot/cmd/bot
 
  **Then run the following command:**
 
-   You may have to run it in the source folder: *~/go/src/github.com/EGartin/airhornbot*
+   You may have to run it in the source folder: *cd ~$GOPATH/github.com/EGartin/airhornbot*
 
 ```go
 
@@ -112,7 +151,7 @@ go install github.com/EGartin/airhornbot/cmd/webserver
 
 ```zsh
 
-cd ~/go/src/github.com/EGartin/airhornbot
+cd ~$GOPATH/github.com/EGartin/airhornbot
 make static
 
 ```
