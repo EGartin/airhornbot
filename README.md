@@ -39,8 +39,11 @@ make test
 ## Get redis ready for prime time (make sure you're still in ~/redis-stable directory)
 sudo make install
 
-##Start Redis
+##Manually Start Redis
 redis-server
+
+##Daemonize Redis
+redis-server --daemonize yes
 
 ```
 
