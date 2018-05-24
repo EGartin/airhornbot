@@ -1,15 +1,15 @@
 BOT_BINARY=bot
-WEB_BINARY=airhornweb
+WEB_BINARY=web
 
 JS_FILES = $(shell find static/src/ -type f -name '*.js')
 
 .PHONY: all
-all: bot airhornweb
+all: bot web
 
 bot: cmd/bot/bot.go
 	go build -o ${BOT_BINARY} cmd/bot/bot.go
 
-airhornweb: cmd/webserver/web.go static
+web: cmd/webserver/web.go static
 	go build -o ${WEB_BINARY} cmd/webserver/web.go
 
 npm: static/package.json
