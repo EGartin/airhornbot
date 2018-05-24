@@ -29,13 +29,13 @@ https://discordapp.com/api/oauth2/authorize?client_id=<<MY_APPLICATION_ID>>&scop
 
 ## Server Requirements
 
-- [Node.js](https://nodejs.org/en/) (npm and gulp)
+- [NPM](https://www.npmjs.com/) (npm and gulp)
 - [go](https://golang.org/doc/install)
 - [discordgo](https://github.com/bwmarrin/discordgo)
 - [redis](https://redis.io/topics/quickstart)
 - Firewall Change[LinuxConfig.org](https://linuxconfig.org/how-to-open-allow-incoming-firewall-port-on-ubuntu-18-04-bionic-beaver-linux)
 
-### Install Node.js and Gulp
+### Install npm and gulp
 
 ```zsh
 
