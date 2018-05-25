@@ -103,6 +103,36 @@ redis-server --daemonize yes
 
 ```
 
+Setting up redis to **start on boot**
+
+```zsh
+
+cd ~/redis-stable
+sudo cp utils/redis_init_script /etc/init.d/redis_6379
+sudo vim /etc/init.d/redis_6379
+#
+#  - Check to make sure Port 6379 is specified
+#
+sudo cp redis.conf /etc/redis/6379.conf
+sudo mkdir /var/redis/6379
+sudo vim /etc/redis/6379.conf
+#
+#  - demonize = yes
+#  - pdfile = /var/run/redis_6379.pid
+#  - loglevel = notify
+#  - logfile = /var/log/redis_6379.log
+#  - dir = /var/redis/6379
+#
+sudo update-rc.d redis_6379 defaults
+sudo /etc/init.d/redis_6379 start
+
+redis-cli ping
+#  - You should receive "PONG" as a reply if all went well, if it doesn't reply, refer to next line
+tail /var/log/redis_6379.log
+#  - This will show you the last few lines of the log file to see if there are any issues, you could also use 'cat' or go into a vim editor to look at the entire file.
+
+```
+
 **Firewall Change from [LinuxConfig.org](https://linuxconfig.org/how-to-open-allow-incoming-firewall-port-on-ubuntu-18-04-bionic-beaver-linux)**
 
 ```zsh
