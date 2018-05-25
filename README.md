@@ -128,11 +128,13 @@ go install github.com/EGartin/airhornbot/cmd/bot
 
  **Then run the following command:**
 
-   You may have to run it in the source folder: *cd ~$GOPATH/github.com/EGartin/airhornbot*
+   You may have to run it in the source folder if you run into can not find audio files: **
 
 ```go
 
-bot -r "localhost:6379" -t "MY_BOT_ACCOUNT_TOKEN" -o OWNER_ID
+cd $GOPATH/src/github.com/EGartin/airhornbot
+
+~/.go/bin/bot -r "localhost:6379" -t "MY_BOT_ACCOUNT_TOKEN" -o OWNER_ID
 
 ```
 
