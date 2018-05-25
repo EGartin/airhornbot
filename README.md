@@ -134,7 +134,7 @@ go install github.com/EGartin/airhornbot/cmd/bot
 
 cd $GOPATH/src/github.com/EGartin/airhornbot
 
-~/.go/bin/bot -r "localhost:6379" -t "MY_BOT_ACCOUNT_TOKEN" -o OWNER_ID
+/.$GOPATH/bin/bot -r "localhost:6379" -t "MY_BOT_ACCOUNT_TOKEN" -o OWNER_ID
 
 ```
 
