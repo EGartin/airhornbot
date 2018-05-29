@@ -53,16 +53,10 @@ npm install gulp
 
 ```zsh
 
-sudo apt install golang-go
-## Set your GOPATH to wherever you want. Keep this in mind if you change location.
-export GOPATH=~/.go
-
-```
-
-Next **Download DiscordGO**.  This will be required for any programs calling the library.
-
-```go
-
+#Optional this is in script in the running bot section later in this
+wget https://dl.google.com/go/go1.10.2.linux-amd64.tar.gz
+sudo tar -C /usr/local -xzf go1.10.2.linux-amd64.tar.gz
+export PATH=$PATH:/usr/local/go/bin
 go get github.com/bwmarrin/discordgo
 
 ```
@@ -147,6 +141,17 @@ Airhorn Bot has two components, a bot client that handles the playing of loyal a
 
 ### Running the Bot
 
+**BETA** You can try to use the [startup script](/cmd/bot/startairhorn.sh) located in the /cmd/bot/ folder and just modify your tokens in the script. Then easy method for auto start on boot is with crontab.
+
+```zsh
+
+#Open Crontab file (I use vim, you can choose your own flavor of text editor)
+$ crontab -e
+#Add this line below all the commented text
+@reboot sh $HOME/startairhorn.sh
+
+```
+
 **First install the bot:**
 
 ```go
@@ -162,9 +167,8 @@ go install github.com/EGartin/airhornbot/cmd/bot
 
 ```go
 
-cd $GOPATH/src/github.com/EGartin/airhornbot
-
-/.$GOPATH/bin/bot -r "localhost:6379" -t "MY_BOT_ACCOUNT_TOKEN" -o OWNER_ID
+cd go/src/github.com/EGartin/airhornbot/
+go run cmd/bot/bot.go -r "localhost:6379" -t "MY_BOT_ACCOUNT_TOKEN" -o OWNER_ID
 
 ```
 
