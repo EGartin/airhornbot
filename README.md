@@ -196,7 +196,9 @@ make static
 
 ```go
 
-./airhornweb -r "localhost:6379" -i MY_APPLICATION_ID -s "MY_APPLICATION_SECRET"
+go get github.com/EGartin/airhornbot/cmd/webserver
+go install github.com/EGartin/airhornbot/cmd/webserver
+go run cmd/webserver/web.go -r -r "localhost:6379" -i MY_APPLICATION_ID -s "MY_APPLICATION_SECRET"
 
 ```
 
