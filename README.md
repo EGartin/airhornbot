@@ -187,7 +187,7 @@ go install github.com/EGartin/airhornbot/cmd/webserver
 
 ```zsh
 
-cd ~$GOPATH/github.com/EGartin/airhornbot
+cd go/src/github.com/EGartin/airhornbot
 make static
 
 ```
@@ -196,8 +196,6 @@ make static
 
 ```go
 
-go get github.com/EGartin/airhornbot/cmd/webserver
-go install github.com/EGartin/airhornbot/cmd/webserver
 go run cmd/webserver/web.go -r -r "localhost:6379" -i MY_APPLICATION_ID -s "MY_APPLICATION_SECRET"
 
 ```

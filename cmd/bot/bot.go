@@ -457,7 +457,7 @@ func playSound(play *Play, vc *discordgo.VoiceConnection) (err error) {
 
 func onReady(s *discordgo.Session, event *discordgo.Ready) {
 	log.Info("Recieved READY payload")
-	s.UpdateStatus(0, "airhornbot.com")
+	s.UpdateStatus(0, "thunder-rock.com")
 }
 
 func scontains(key string, options ...string) bool {
