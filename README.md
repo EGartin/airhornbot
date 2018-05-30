@@ -1,12 +1,8 @@
 # Airhorn Bot
 
-======
-
 Airhorn is an example implementation of the [Discord API](https://discordapp.com/developers/docs/intro). Airhorn bot utilizes the [discordgo](https://github.com/bwmarrin/discordgo) library, a free and open source library. Original credit of Airhorn Bot goes to [these guys](https://airhorn.solutions/) Airhorn Bot requires Go 1.4 or higher.
 
 ## Prereqs
-
-======
 
 You need a few things from your discord client before you begin. You need to login to the [discord app](https://discordapp.com/channels/@me) in the browser and enable developer mode under `Appearance` to enable the features you need to interact with the Discord API.
 
@@ -33,8 +29,6 @@ https://discordapp.com/api/oauth2/authorize?client_id=<<MY_APPLICATION_ID>>&scop
 
 ## Server Requirements
 
-======
-
 - [NPM](https://www.npmjs.com/) (npm and gulp)
 - [go](https://golang.org/doc/install)
 - [discordgo](https://github.com/bwmarrin/discordgo)
@@ -42,8 +36,6 @@ https://discordapp.com/api/oauth2/authorize?client_id=<<MY_APPLICATION_ID>>&scop
 - Firewall Change[LinuxConfig.org](https://linuxconfig.org/how-to-open-allow-incoming-firewall-port-on-ubuntu-18-04-bionic-beaver-linux)
 
 ### Install npm and gulp
-
-======
 
 ```zsh
 
@@ -58,8 +50,6 @@ npm install gulp
 ```
 
 ### Install GO and DiscordGO
-
-======
 
 ```zsh
 
@@ -82,8 +72,6 @@ export PATH=$PATH:/usr/local/go/bin
 ```
 
 ### Installing Redis
-
-======
 
 **Installing Redis from [Redis.io](https://redis.io/topics/quickstart)**
 
@@ -163,8 +151,6 @@ Airhorn Bot has two components, a bot client that handles the playing of loyal a
 
 ### Running the Bot
 
-======
-
 **BETA** You can try to use the [startup script](/cmd/bot/startairhorn.sh) located in the /cmd/bot/ folder and just modify your tokens in the script. Then easy method for auto start on boot is with crontab.
 
 ```zsh
@@ -172,7 +158,7 @@ Airhorn Bot has two components, a bot client that handles the playing of loyal a
 #Open Crontab file (I use vim, you can choose your own flavor of text editor)
 $ crontab -e
 #Add this line below all the commented text
-@reboot sh $HOME/startairhorn.sh
+@reboot sh $HOME/go/src/github.com/EGartin/airhornbot/cmd/bot/startairhorn.sh
 
 ```
 
@@ -197,8 +183,6 @@ go run cmd/bot/bot.go -r "localhost:6379" -t "MY_BOT_ACCOUNT_TOKEN" -o OWNER_ID
 ```
 
 ### Running the Web Server
-
-======
 
 **First install the webserver:**
 
